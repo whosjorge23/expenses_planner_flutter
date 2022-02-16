@@ -1,6 +1,6 @@
-import '/models/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import './transaction_item.dart';
+import '/models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
@@ -29,40 +29,9 @@ class TransactionList extends StatelessWidget {
               ],
             )
           : ListView.builder(
-              itemBuilder: ((context, index) => Card(
-                    elevation: 5,
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        radius: 30,
-                        child: FittedBox(
-                          child: Text(
-                            "\$${transactions[index].amount.toStringAsFixed(2)}",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ),
-                      ),
-                      title: Text(
-                        transactions[index].title,
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      subtitle: Text(
-                        DateFormat.yMMMd().format(transactions[index].date),
-                        style:
-                            const TextStyle(color: Colors.grey, fontSize: 15),
-                      ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete_outline_rounded),
-                        color: Theme.of(context).errorColor,
-                        onPressed: () =>
-                            deleteTransaction(transactions[index].id),
-                      ),
-                    ),
-                  )),
+              itemBuilder: ((context, index) => TransactionItem(
+                  transaction: transactions[index],
+                  deleteTransaction: deleteTransaction)),
               itemCount: transactions.length,
             ),
     );
