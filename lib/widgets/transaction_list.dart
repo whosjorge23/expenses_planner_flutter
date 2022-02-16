@@ -6,7 +6,7 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function(String) deleteTransaction;
 
-  TransactionList(this.transactions, this.deleteTransaction);
+  const TransactionList(this.transactions, this.deleteTransaction);
 
   @override
   Widget build(BuildContext context) {

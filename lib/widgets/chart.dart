@@ -6,7 +6,7 @@ import './chart_bar.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
-  Chart(this.recentTransactions);
+  const Chart(this.recentTransactions);
 
   List get groupedTransactionValues {
     return List<dynamic>.generate(7, (index) {

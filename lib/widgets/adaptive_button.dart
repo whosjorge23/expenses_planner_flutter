@@ -6,7 +6,7 @@ class AdaptiveButton extends StatelessWidget {
   final String text;
   final VoidCallback handler;
 
-  AdaptiveButton({
+  const AdaptiveButton({
     required this.text,
     required this.handler,
   });
